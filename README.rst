@@ -17,10 +17,14 @@ Install with pip:
 
 This will install pywb and other dependencies.
 
-To run:
+To run with wsgi ref:
 
-- ``uwsgi uwsgi.ini`` -- run with uwsgi
-- ``./run.sh`` -- run with wsgiref
+- ``./run.sh``
+
+
+To run with uwsgi (if not already installed, ``pip install uwsgi`` may be needed)
+
+- ``./run-uwsgi.sh``
 
 
 Browsing

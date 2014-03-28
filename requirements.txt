@@ -1,3 +1,2 @@
-uwsgi
 commoncrawlindex>=0.0.7
 git+git://github.com/ikreymer/pywb.git@develop
