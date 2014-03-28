@@ -1,0 +1,28 @@
+<html>
+<head>
+  <style>
+  .fix-width {
+      max-width: 600px;
+      word-wrap: break-word;
+  }
+  </style>
+</head>
+<body>
+  <h2>Common Crawl Search Results</h2>
+  <b>{{ cdx_lines | length }} capture(s) <i>{{ 'prefix' if type == 'url_query' else 'exact' }}</i> matching <b>{{ url }}</b>
+  <table id="captures" style="border-spacing: 10px; table-layout: fixed">
+   <tr>
+      <th>Capture</th>
+      <th>Original Url</th>
+      <th>Archive File</th>
+    </tr>
+    {% for cdx in cdx_lines %}
+    <tr>
+      <td><a href="{{ prefix }}{{ cdx.timestamp }}/{{ cdx.original }}">{{ cdx['timestamp'] | format_ts }}</a></td>
+      <td class="fix-width"><a href="{{ prefix }}{{ cdx.timestamp }}/{{ cdx.original }}">{{ cdx['original'] }}</a></td>
+      <td><a href="http://aws-publicdatasets.s3.amazonaws.com/common-crawl/parse-output/segment/{{ cdx['filename'] }}">{{ cdx['filename'] }}</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>

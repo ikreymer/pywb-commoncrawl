@@ -1,0 +1,18 @@
+# Common-Crawl-Index browser config
+# =================================
+
+# Use the custom Common-Crawl Index server (instead of regular cdx)
+server_cls: !!python/name:cci.cciserver.CCIServer
+
+# define single /commoncrawl/ access point with path to s3
+collections:
+    commoncrawl: s3://aws-publicdatasets/common-crawl/projects/url-index/url-index.1356128792
+
+# define plain http arc/warc download prefix
+archive_paths: http://aws-publicdatasets.s3.amazonaws.com/common-crawl/parse-output/segment/
+
+# enable cdx api browsing (via /commoncrawl-index?url=...)
+enable_cdx_api: -index
+
+# capture query view template
+query_html: ./ui-templates/query-cc.html
