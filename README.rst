@@ -31,26 +31,26 @@ Browsing
 --------
 
 This browser follow standard wayback machine url conventions:
-For example, to see a list of captures for ``http://ask.metafilter.com``
+For example, to see a list of captures for *ask.metafilter.com*
 you can point your browser to:
 
-``http://localhost:8080/commoncrawl/*/http://ask.metafilter.com``
+`http://localhost:8080/commoncrawl/*/http://ask.metafilter.com <http://localhost:8080/commoncrawl/*/http://ask.metafilter.com>`_
 
 You can also view captures for all urls starting with a given prefix by using
 the wildcard query:
 
-``http://localhost:8080/commoncrawl/*/http://ask.metafilter.com*``
+`http://localhost:8080/commoncrawl/*/http://ask.metafilter.com* <http://localhost:8080/commoncrawl/*/http://ask.metafilter.com*>`_
 
 There is also a lower-level api for fetching the index in plain-text format:
 
-``http://localhost:8080/commoncrawl-index?url=http://ask.metafilter.com&matchType=host``
+`http://localhost:8080/commoncrawl-index?url=http://ask.metafilter.com&matchType=host <http://localhost:8080/commoncrawl-index?url=http://ask.metafilter.com&matchType=host>`_
 
 (This query converts the Common-Crawl Index into a text CDX-like index. Additional
 options to be added at a later time.)
 
 Additional Info
 """""""""""""""
-See the `cci-config.yaml <https://github.com/ikreymer/pywb-commoncrawl/blob/master/cci-config.yaml>` file for configuration info specific to this deployment.
+See the `cci-config.yaml <https://github.com/ikreymer/pywb-commoncrawl/blob/master/cci-config.yaml>`_ file for configuration info specific to this deployment.
 
 See the `pywb github page <https://github.com/ikreymer/pywb>`_ project for more details and documentation of pywb wayback implementation.
 
