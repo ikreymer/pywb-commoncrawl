@@ -17,14 +17,19 @@ Install with pip:
 
 This will install pywb and other dependencies.
 
-To run with wsgi ref:
+There are a few quick run scripts:
 
-- ``./run.sh``
+- ``./run.sh`` -- run with wsgi ref
+- ``./run-uwsgi.sh`` -- run with uwsgi (must have uwsgi installed, eg: ``pip install uwsgi``)
+- ``./run-gunicorn.sh`` -- run with gunicorn (must have gunicorn install, eg: ``pip install gunicorn``)
 
 
-To run with uwsgi (if not already installed, ``pip install uwsgi`` may be needed)
+Tests
+"""""
 
-- ``./run-uwsgi.sh``
+To run tests against live index (must have py.test installed, eg: ``pip install pytest``)
+
+- ``./run-tests.sh``
 
 
 Browsing

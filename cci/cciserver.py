@@ -5,7 +5,7 @@ to be read by pywb
 
 try:
     from collections import OrderedDict
-except ImportError:
+except ImportError:  # pragma: no cover
     from ordereddict import OrderedDict
 
 from commoncrawlindex.index import open_index_reader
@@ -15,7 +15,7 @@ from pywb.utils.timeutils import sec_to_timestamp, timestamp_to_sec
 from pywb.utils.wbexception import NotFoundException
 
 from pywb.cdx.cdxserver import BaseCDXServer
-from pywb.cdx.cdxops import cdx_filter
+from pywb.cdx.cdxops import cdx_limit
 
 import bisect
 import itertools
@@ -44,6 +44,9 @@ class CCIServer(BaseCDXServer):
 
         if query.is_exact:
             cci_iter = self.sort_cci_timestamp(cci_iter, query)
+        else:
+            if query.limit:
+                cci_iter = cdx_limit(cci_iter, query.limit)
 
         if query.output == 'text':
             cci_iter = (str(cci) + '\n' for cci in cci_iter)
@@ -100,9 +103,6 @@ class CCIObject(OrderedDict):
         self['offset'] = data['arcFileOffset']
 
         self['filename'] = self.FORMAT.format(**data)
-
-    def is_revisit(self):
-        return False
 
     def __str__(self):
         return ' '.join(str(val) for n, val in self.iteritems())
@@ -208,6 +208,6 @@ def cci_surt_to_url(cci_surt):
     return url
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: no cover
     import doctest
     doctest.testmod()

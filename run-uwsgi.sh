@@ -1,4 +1,5 @@
 #!/bin/sh
+# requires uwsgi to be installed, eg: pip install uwsgi
 
 mypath=$(cd `dirname $0` && pwd)
 
